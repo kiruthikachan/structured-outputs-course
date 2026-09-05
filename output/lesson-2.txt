@@ -1,0 +1,46 @@
+[✓] Step 1: Imports, schema, and StructuredOutputError defined
+Clinical note:
+Patient is a 45‑year‑old male presenting with a 2‑day headache. No prior tests ordered. Prescribed acetaminophen.
+[✓] Step 1: Clinical note loaded and printed
+
+Prompt sent to the model:
+You are a medical assistant. Extract the following information from the clinical note and return ONLY a JSON object with the keys: visit_type, age, gender, chief_complaint, duration, tests, rx. Do not add any extra text.
+
+Clinical note: Patient is a 45‑year‑old male presenting with a 2‑day headache. No prior tests ordered. Prescribed acetaminophen.
+[✓] Step 2: Prompt constructed
+
+Model reply (cached):
+Based on the note, here is the structured data:
+{"visit_type":"follow-up","age":"45","gender":"Male","chief_complaint":"headache","duration":"2 days","tests":"none","rx":"acetaminophen"}
+Let me know if you need anything else.
+[✓] Step 3: Cached model response ready
+
+Extracted JSON string:
+{"visit_type":"follow-up","age":"45","gender":"Male","chief_complaint":"headache","duration":"2 days","tests":"none","rx":"acetaminophen"}
+[✓] Step 4: JSON extracted with regex
+
+[✗] Step 2: Validation failed
+  - '45' is not of type 'integer'
+[✓] Step 2: Validation failure captured
+
+[✓] Step 3: Repair prompt constructed (snippet):
+You previously returned the following text:
+{"visit_type":"follow-up","age":"45","gender":"Male","chief_complaint":"headache","duration":"2 days","tests":"none","rx":"acetaminophen"}
+
+Your response failed schema validation with these errors:
+- '45' i...
+
+[✓] Step 4: Using cached repaired response:
+{"visit_type":"follow-up","age":45,"gender":"Male","chief_complaint":"headache","duration":"2 days","tests":"none","rx":"acetaminophen"}
+[✓] Step 4: Validation passed after repair
+
+[✓] Pipeline complete – final structured data:
+{
+  "visit_type": "follow-up",
+  "age": 45,
+  "gender": "Male",
+  "chief_complaint": "headache",
+  "duration": "2 days",
+  "tests": "none",
+  "rx": "acetaminophen"
+}
