@@ -1,5 +1,6 @@
-# Structured Outputs Course
-This project contains a short AI-generated course on structured outputs for a learner whose pipeline breaks when the model returns prose instead of JSON.
+# AI Course Generation System
+This project contains a short AI-generated course on structured outputs, designed for a learner whose pipeline breaks when model responses include prose instead of JSON.
+The generator builds lessons and coding exercises step-by-step while carrying prior lesson content and learner code across generation stages.
 
 ## Course Goal
 The capstone is a schema-validated structured output pipeline with a repair loop.
